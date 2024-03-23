@@ -7,8 +7,8 @@ import {
     Navigate,
 } from "react-router-dom";
  
-import HomeScreen from "./Pages/HomeScreen";
-import CharacterScreen from "./Pages/CharacterCreation";
+import HomeScreen from "./HomeScreen/HomeScreen";
+import CharacterScreen from "./HomeScreen/CharacterCreation";
 import ImageCreation from './ImageCreation/ImageCreation';
 
 function App() {
