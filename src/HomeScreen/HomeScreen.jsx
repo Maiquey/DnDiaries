@@ -4,6 +4,7 @@
     import bgImage from '../Assets/openbook.jpg'
     import bmIcon from '../Assets/icons8-bookmark-192-removebg-preview.png'
     import inkIcon from '../Assets/icons8-ink-50.png'
+    import { Link } from "react-router-dom";
 
     export default class HomeScreen extends React.Component {
         constructor(props) {
@@ -37,6 +38,10 @@
                     </button>
                     <button className="newEntryButton" style={{ backgroundImage: `url(${inkIcon})` }}>
                     </button>
+                    <br />
+                    <Link to="/">home</Link>
+                    <br />
+                    <Link to="/character" className="button-like-link">char</Link>
                 </div>
             );
         }
