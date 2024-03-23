@@ -10,6 +10,7 @@ import {
 import HomeScreen from "./HomeScreen/HomeScreen";
 import CharacterScreen from "./HomeScreen/CharacterCreation";
 import ImageCreation from './ImageCreation/ImageCreation';
+import RetrieveData from './RetrieveData/RetrieveData'
 
 function App() {
   return (

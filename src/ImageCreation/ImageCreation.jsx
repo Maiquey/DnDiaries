@@ -17,11 +17,24 @@ export default function ImageCreation() {
       .then((response) => {
         setImageUrl(response.data.image_url);
         setError("");
+        saveToLocalStorage(prompt, response.data.image_url); // Save to local storage
       })
       .catch((error) => {
         setError("Failed to generate image.");
         console.error("Error generating image:", error);
       });
+  };
+
+  const saveToLocalStorage = (prompt, imageUrl) => {
+    let savedData = localStorage.getItem('savedImageData');
+    if (!savedData) {
+      savedData = [];
+    } else {
+      savedData = JSON.parse(savedData);
+    }
+
+    savedData.push({ prompt, imageUrl });
+    localStorage.setItem('savedImageData', JSON.stringify(savedData));
   };
 
   return (
