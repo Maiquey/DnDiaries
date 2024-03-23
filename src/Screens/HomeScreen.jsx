@@ -22,20 +22,7 @@ export default class HomeScreen extends React.Component{
                 </div>
                 <Link to="/">home</Link>
                 <br />
-                <Link to="/character">char</Link>
-                {/* <ul>
-                    <button>
-                    <li>
-                        <Link to="/"></Link>
-                    </li>
-                    </button>
-                    <br />
-                    <button>
-                    <li>
-                        <Link to="/character"></Link>
-                    </li>
-                    </button>
-                </ul> */}
+                <Link to="/character" className="button-like-link">char</Link>
             </div>
         );
     }
