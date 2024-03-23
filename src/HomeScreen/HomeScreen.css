@@ -1,0 +1,32 @@
+.bg {
+    width: 100%; /* Set width to fill the container */
+    height: 100vh; /* Set height to fill the viewport */
+    background-size: cover; /* Ensure the background covers the entire element */
+    background-position: center; /* Center the background image */
+}
+
+.bookmark {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    width: 120px;
+    height: 130px;
+    cursor: pointer;
+    margin-top: -300px;
+    margin-bottom: 0px;
+    margin-right: 1000px;
+    margin-left: 0px;
+}
+
+.newEntryButton {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
