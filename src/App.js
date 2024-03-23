@@ -6,11 +6,10 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
- 
-import HomeScreen from "./HomeScreen/HomeScreen";
 import CharacterScreen from "./HomeScreen/CharacterCreation";
 import ImageCreation from './ImageCreation/ImageCreation';
 import HomeScreen from './HomeScreen/HomeScreen';
+
 function App() {
   return (
       <>
