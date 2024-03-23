@@ -1,11 +1,14 @@
 Mountain Madness Hackathon 2024
 
 Our project: DnDiaries
+
 The party:
+
     Josh Chung
     Nelson Fang
     Jan Mazurek
     Stephanie Wong
+    Elvin Zukic
 
 
 About our project:
