@@ -6,6 +6,7 @@ The party:
     Nelson Fang
     Jan Mazurek
     Stephanie Wong
+    Elvin Zukic
 
 
 About our project:
