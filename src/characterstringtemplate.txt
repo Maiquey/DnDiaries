@@ -1,0 +1,3 @@
+[charactername] is a [age] old [race] [class] with [hair color] hair and [skin color] skin. They weigh [weight] kg and are [height] cm tall.
+
+- bug test age with different races
