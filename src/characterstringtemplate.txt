@@ -1,3 +1,6 @@
-[charactername] is a [age] old [race] [class] with [hair color] hair and [skin color] skin. They weigh [weight] kg and are [height] cm tall.
+[charactername] is a [age] old [race] [class] with [hair color] hair and [skin color] skin. They weigh [weight] kg and are [height] cm tall. they are wearing [clothing] and is wielding a [weapon].
 
 - bug test age with different races
+wont be in prompt but user can fill these in:
+[alignment]
+[background]
