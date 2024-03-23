@@ -7,8 +7,9 @@ import {
     Navigate,
 } from "react-router-dom";
  
-import HomeScreen from "./Screens/HomeScreen";
-import CharacterScreen from "./Screens/CharacterCreation";
+import HomeScreen from "./Pages/HomeScreen";
+import CharacterScreen from "./Pages/CharacterCreation";
+import ImageCreation from './ImageCreation/ImageCreation';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
                   <Route
                       path="/character"
                       element={<CharacterScreen />}
+                  />
+                  <Route
+                      path="/imageCreation"
+                      element={<ImageCreation />}
                   />
                   <Route
                       path="*"
