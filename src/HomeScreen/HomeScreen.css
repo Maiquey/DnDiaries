@@ -7,19 +7,30 @@
 
 .bookmark {
     position: relative;
-    top: -30px; /* Adjust this value as needed to move the button up */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
     border: none;
-    width: 120px;
-    height: 130px;
     cursor: pointer;
-    margin-right: 1000px;   
-    margin-left: 250px;
-    margin-top: -10px;
+    top: -4.5vh;
+    width: 12vh;
+    height: 15vh;
+    margin-left: 30vh;
+    margin-right: 105vh;
 }
+
+.newEntryButton {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    width: 2vh;
+    height: 2vh;
+    cursor: pointer;
+}
+
 .bookmark:hover {
     background-color: transparent; /* Keeps the background color unchanged */
     border-color: transparent; /* Removes any border highlight */
@@ -57,16 +68,6 @@
     width: 100%; /* Makes child elements take full width of the container, adjust as necessary */
 }
 
-.newEntryButton {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border: none;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-}
 
 .character-form {
     display: flex;
