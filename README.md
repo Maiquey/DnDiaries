@@ -23,9 +23,9 @@ DnDiaries keeps track of all your adventures so you can always look back and rem
 IMPORTANT DISCLAIMER: API calls cost $0.04 an image so I would ask that the judges to not do mass testing. It would be preferable if you didn't do more than 20 API calls (generating an image)
  
 
-How it works:
+### How it works:
 
-React Stuff:
+React Stuff
 
 ## Available Scripts
 
@@ -35,7 +35,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-### Then run app.py
+Then run `app.py`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
