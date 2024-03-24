@@ -44,7 +44,7 @@ export default class HomeScreen extends React.Component {
         //       <span className="overlay-text">NEW</span>
         //     </Link>
         return (
-            <div className="bg2" style={{ backgroundImage: `url(${bgImage})`, paddingTop: '10em' }}>
+            <div className="bg" style={{ backgroundImage: `url(${bgImage})`, paddingTop: '10em' }}>
                 <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
                 <button className="bookmark" onClick={() => this.openModalWithContent('bookmark')} style={{ backgroundImage: `url(${bmIcon})` }}>
                 </button>
