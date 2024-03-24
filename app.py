@@ -11,7 +11,9 @@ def load_api_key():
         config = json.load(config_file)
         # awful awful awful never do this
         # but its a hackathon so we're being silly 
-        api_key = config.get('API_KEY_1') + config.get('API_KEY_1') 
+        api_key = config.get('API_KEY_1') + config.get('API_KEY_2')
+        print("printing api key!!")
+        print(api_key)
         return api_key
 
 # DALL·E API Endpoint
