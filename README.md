@@ -11,10 +11,13 @@ The party:
     Elvin Zukic
 
 
-About our project:
+### About our project:
 Get a new perspective on your DND or other tabletop RPG campaigns with DnDiaries!
+
 Input your characters with the bookmark icon and then record your adventures with the inkpot.
+
 You will then see all your epic moments come to life as DALLE-3 reimagines your edventure and puts it in image form.
+
 DnDiaries keeps track of all your adventures so you can always look back and reminisce on the good times!
 
 IMPORTANT DISCLAIMER: API calls cost $0.04 an image so I would ask that the judges to not do mass testing. It would be preferable if you didn't do more than 20 API calls (generating an image)
