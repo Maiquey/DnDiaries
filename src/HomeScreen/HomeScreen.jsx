@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Modal from '../Components/Modal/Modal.js'
 import './HomeScreen.css';
 import bgImage from '../Assets/openbook.jpg'
