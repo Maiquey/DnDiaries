@@ -58,17 +58,12 @@ export default class HomeScreen extends React.Component {
         //       <span className="overlay-text">NEW</span>
         //     </Link>
         return (
-            <div className="bg" style={{ backgroundImage: `url(${bgImage})`, paddingTop: '50px' }}>
-                <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
+            <div className="bg" style={{ backgroundImage: `url(${bgImage})`, paddingTop: '10em' }}>
                 <button className="bookmark" onClick={() => this.openModalWithContent('bookmark')} style={{ backgroundImage: `url(${bmIcon})` }}>
                 </button>
                 <Link to="/ImageCreation" className="newEntryButton">
                     <img src={inkIcon} alt="Ink Pot" />
                 </Link>
-                <br />
-                <Link to="/">home</Link>
-                <br />
-                <Link to="/character" className="button-like-link">char</Link>
                 <div className="wholepage">
                 <ul>
                 {savedData.map((item, index) => (
@@ -80,8 +75,8 @@ export default class HomeScreen extends React.Component {
                 ))}
                 </ul>
                 </div>
-                <br />
-            </div>
+                <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
+                </div>
         );
     }
 }

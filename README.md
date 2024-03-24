@@ -11,8 +11,8 @@ The party:
     Elvin Zukic
 
 
-### About our project:
-Get a new perspective on your DND or other tabletop RPG campaigns with DnDiaries!
+### About our project and How to Use:
+Get a new perspective on your DnD or other tabletop RPG campaigns with DnDiaries!
 
 Input your characters with the bookmark icon and then record your adventures with the inkpot.
 
