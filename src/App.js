@@ -31,6 +31,10 @@ function App() {
                       element={<ImageCreation />}
                   />
                   <Route
+                      path="/retrieveData"
+                      element={<RetrieveData />}
+                  />
+                  <Route
                       path="*"
                       element={<Navigate to="/" />}
                   />
