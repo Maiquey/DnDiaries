@@ -17,6 +17,7 @@ export default function SavedImageData() {
       <ul>
         {savedData.map((item, index) => (
           <li key={index}>
+            <strong>Title:</strong> {item.title}<br />
             <strong>Prompt:</strong> {item.prompt}<br />
             <img src={item.imageUrl} alt={`Generated ${index}`} />
           </li>

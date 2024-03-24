@@ -30,14 +30,19 @@
     
         render() {
             const { isModalOpen, modalContentType } = this.state;
-    
+            
+            // <Link to="/character" className="addPC">
+            //       <img src={dice} alt="Dice Image" />
+            //       <span className="overlay-text">NEW</span>
+            //     </Link>
             return (
                 <div className="bg" style={{ backgroundImage: `url(${bgImage})`, paddingTop: '50px' }}>
                     <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
                     <button className="bookmark" onClick={() => this.openModalWithContent('bookmark')} style={{ backgroundImage: `url(${bmIcon})` }}>
                     </button>
-                    <button className="newEntryButton" style={{ backgroundImage: `url(${inkIcon})` }}>
-                    </button>
+                    <Link to="/journalEntry" className="newEntryButton">
+                        <img src={`url(${inkIcon})`} alt="Ink Pot" />
+                    </Link>
                     <br />
                     <Link to="/">home</Link>
                     <br />
