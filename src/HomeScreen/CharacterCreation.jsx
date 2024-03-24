@@ -33,6 +33,10 @@ export default class CharacterScreen extends React.Component{
                         <input type="text" name="name" />
                     </div>
                     <div>
+                        <label>Gender: </label>
+                        <input type="text" name="gender" />
+                    </div>
+                    <div>
                         <label>Age: </label>
                         <input type="text" name="age" />
                     </div>
