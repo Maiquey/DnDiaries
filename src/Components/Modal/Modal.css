@@ -2,6 +2,33 @@ body.active-modal {
   overflow-y: hidden;
 }
 
+.addPC {
+  position: relative; /* Ensure relative positioning for the button */
+  font-family: 'Papyrus', sans-serif; /* Apply Papyrus font family */
+  font-size: small;
+  color: black;
+  display: inline-block; /* Ensure button wraps its content */
+  width: 70px;
+  height: 70px;
+}
+
+.addPC img {
+  display: block; /* Ensure the image fills the button */
+  width: 100%; /* Ensure the image fills the button horizontally */
+  height: 100%; /* Maintain aspect ratio of the image */
+}
+
+.addPC .overlay-text {
+  position: absolute; /* Position the text absolutely */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the text perfectly */
+  background-color: white; /* Set the background color for the text */
+  padding: 1px 1px; /* Adjust padding to create a small background */
+  border-radius: 1px; /* Optional: Add rounded corners for better appearance */
+  z-index: 1; /* Ensure the text is on top of the background image */
+}
+
 .btn-modal {
   padding: 10px 20px;
   display: block;

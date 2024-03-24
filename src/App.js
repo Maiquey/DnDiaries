@@ -6,11 +6,11 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
- 
-import HomeScreen from "./HomeScreen/HomeScreen";
 import CharacterScreen from "./HomeScreen/CharacterCreation";
 import ImageCreation from './ImageCreation/ImageCreation';
 import RetrieveData from './RetrieveData/RetrieveData'
+import HomeScreen from './HomeScreen/HomeScreen';
+import JournalEntry from "./HomeScreen/JournalEntry";
 
 function App() {
   return (
@@ -29,6 +29,10 @@ function App() {
                   <Route
                       path="/imageCreation"
                       element={<ImageCreation />}
+                  />
+                  <Route
+                      path="/journalEntry"
+                      element={<JournalEntry />}
                   />
                   <Route
                       path="*"
