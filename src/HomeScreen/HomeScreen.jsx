@@ -49,7 +49,6 @@ export default class HomeScreen extends React.Component {
         //     </Link>
         return (
             <div className="bg" style={{ backgroundImage: `url(${bgImage})`, paddingTop: '10em' }}>
-                <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
                 <button className="bookmark" onClick={() => this.openModalWithContent('bookmark')} style={{ backgroundImage: `url(${bmIcon})` }}>
                 </button>
                 <Link to="/ImageCreation" className="newEntryButton">
@@ -65,6 +64,7 @@ export default class HomeScreen extends React.Component {
                 ))}
                 </ul>
                 </div>
+                <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
                 </div>
         );
     }
