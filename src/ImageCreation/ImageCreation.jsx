@@ -42,10 +42,9 @@ export default class ImageCreation extends React.Component {
     const { prompt, title } = this.state;
     const characterStrings = this.generateCharacterStrings();
     const fullPrompt = `${characterStrings.join(' ')}${prompt}`;
-
-    console.log(fullPrompt)
+    
     axios
-      .post("http://localhost:5000/generate", { fullPrompt })
+      .post("http://localhost:5000/generate", { prompt:fullPrompt })
       .then((response) => {
         this.setState({ imageUrl: response.data.image_url, error: "" });
         this.saveToLocalStorage(prompt, title, response.data.image_url); // Save to local storage
