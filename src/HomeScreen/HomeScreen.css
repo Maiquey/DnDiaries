@@ -15,9 +15,40 @@
     height: 130px;
     cursor: pointer;
     margin-top: -30px;
-    margin-bottom: 0px;
     margin-right: 1000px;
     margin-left: 250px;
+}
+
+.wholepage {
+    width: 30%; /* Adjusted for content width */
+    min-height: 75vh; /* Minimum height relative to the viewport height */
+    max-height: 75vh; /* Sets a maximum height to prevent extension beyond this point */
+    margin-left: 250px; /* Adjusted for horizontal positioning */
+    margin-right: auto; /* For horizontal centering */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center-align child elements horizontally */
+    justify-content: start; /* Align child content to the start of the flex direction */
+    padding-bottom: 20px; /* Padding at the bottom */
+    border: 1px solid #000000; /* Visible border */
+    overflow-y: auto; /* Enables vertical scrolling when content overflows */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.wholepage-item {
+    width: 80%; /* Makes the child div take up the full width of the wholepage div */
+    height: 120%;
+    padding: 10px; /* Adds some padding inside each child div for spacing */
+    box-sizing: border-box; /* Ensures padding does not add to the total width */
+    margin-bottom: 10px; /* Adds some space between each child div */
+    border: 1px solid #000000; /* To see the border, you need to specify border style, not just color */
+  }
+
+/* Additional style to ensure items wrap correctly if you decide to use row or need horizontal wrapping */
+.wholepage > * {
+    flex-shrink: 0; /* Prevents children from shrinking smaller than their content's default size */
+    width: 100%; /* Makes child elements take full width of the container, adjust as necessary */
 }
 
 .newEntryButton {
@@ -29,4 +60,41 @@
     width: 60px;
     height: 60px;
     cursor: pointer;
+}
+
+.character-form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-column {
+    flex: 1;
+    min-width: 250px;
+    padding: 10px;
+}
+
+.bg2 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+/* Additional CSS for transparent and dimmer text boxes */
+.character-form input[type="text"] {
+    background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity for dim effect */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Optional: sets a light, semi-transparent border */
+    color: #000; /* Text color */
+    padding: 8px; /* Padding inside text boxes */
+    margin-bottom: 10px; /* Space between text boxes */
+}
+
+.character-form input[type="text"]::placeholder {
+    color: #666; /* Placeholder text color */
+}
+
+.character-form input[type="text"]:focus {
+    outline: none; /* Removes the default focus outline */
+    border-color: #999; /* Darker border on focus for better visibility */
 }

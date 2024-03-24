@@ -47,6 +47,12 @@
                     <Link to="/">home</Link>
                     <br />
                     <Link to="/character" className="button-like-link">char</Link>
+                    <div className="wholepage">
+                        hello
+                        <div className="wholepage-item">Item 1 content goes here...</div>
+                        {/* Add more wholepage-item divs as needed */}
+                    </div>
+                    <br />
                 </div>
             );
         }
