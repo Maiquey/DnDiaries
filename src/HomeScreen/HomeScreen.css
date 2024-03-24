@@ -1,34 +1,40 @@
 .bg {
     width: 100%; /* Set width to fill the container */
-    height: 100vh; /* Set height to fill the viewport */
+    height: 100%; /* Set height to fill the viewport */
     background-size: cover; /* Ensure the background covers the entire element */
+    position: absolute;
     background-position: center; /* Center the background image */
 }
 
-.bookmark {
-    position: relative;
-    background-size: cover;
+.bg2 {
+    margin: 0;
+    padding: 0;
+    background-size: cover; /* This makes the background image cover the entire element, scaling it as necessary */
+    background-position: center; /* This positions the background image at the center */
+    background-repeat: no-repeat; /* This prevents the background image from repeating */
+    height: 100vh; /* This sets the height of the body to 100% of the viewport height */
+}
+
+.bookmark, .newEntryButton {
+    position: absolute; /* Adjust if necessary to position relative to a specific parent */
+    width: 15vw; /* Adjust width as necessary, using viewport width for responsiveness */
+    height: 15vh; /* Adjust height as necessary, using viewport height for responsiveness */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    top: -2.8em;
-    width: 10em;
-    height: 10em;
-    margin-left: 15em;
-    margin-right: 60em;
+}
+
+.bookmark {
+    top: calc(4vh); /* Adjust the vertical position using viewport height 10vh - 4em*/
+    left: calc(10vw); /* Adjust the horizontal position using viewport width 15vw, 10vw - 1em*/
 }
 
 .newEntryButton {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border: none;
-    width: 2em;
-    height: 2em;
-    cursor: pointer;
+    top: calc(10vh); /* Adjust based on the desired position, using viewport units */
+    left: calc(85vw); /* Adjust based on the desired position, using viewport units */
 }
 
 .bookmark:hover {
@@ -37,30 +43,31 @@
 }
 
 .wholepage {
-    width: 30%; /* Adjusted for content width */
-    min-height: 75vh; /* Minimum height relative to the viewport height */
-    max-height: 75vh; /* Sets a maximum height to prevent extension beyond this point */
-    margin-left: 250px; /* Adjusted for horizontal positioning */
-    margin-right: auto; /* For horizontal centering */
-    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
-    display: flex; /* Use flexbox for internal layout */
-    flex-direction: column; /* Stack child elements vertically */
-    align-items: center; /* Center-align child elements horizontally */
-    justify-content: start; /* Align child content to the start of the flex direction */
-    padding-bottom: 20px; /* Padding at the bottom */
-    border: 1px solid #000000; /* Visible border */
-    overflow-y: auto; /* Enables vertical scrolling when content overflows */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 30%; /* Keeping percentage for responsive width */
+    min-height: 75vh; /* Keeping vh for a relative viewport height */
+    max-height: 75vh; /* Ensuring the height does not extend beyond this point */
+    margin-left: 15vw; /* Adjust this value to move the element further to the right */
+    margin-top: 2em;
+    box-sizing: border-box; /* Ensures padding and border are included in width/height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-bottom: 2em; /* Now using em for consistent relative padding */
+    border: 1px solid #000000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative; /* Add this if you need explicit positioning */
 }
 
 .wholepage-item {
-    width: 80%; /* Makes the child div take up the full width of the wholepage div */
-    height: 120%;
-    padding: 10px; /* Adds some padding inside each child div for spacing */
-    box-sizing: border-box; /* Ensures padding does not add to the total width */
-    margin-bottom: 10px; /* Adds some space between each child div */
-    border: 1px solid #000000; /* To see the border, you need to specify border style, not just color */
-  }
+    width: 80%; /* Retained percentage for responsive width */
+    min-height: 3em; /* Example min-height to ensure content fits, adjust as needed */
+    padding: 1em; /* Consistent padding inside each item */
+    box-sizing: border-box;
+    margin-bottom: 1em; /* Consistent space between items */
+    border: 1px solid #000000;
+}
 
 /* Additional style to ensure items wrap correctly if you decide to use row or need horizontal wrapping */
 .wholepage > * {

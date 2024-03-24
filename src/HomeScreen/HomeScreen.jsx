@@ -44,31 +44,27 @@ export default class HomeScreen extends React.Component {
         //       <span className="overlay-text">NEW</span>
         //     </Link>
         return (
-            <div className="bg" style={{ backgroundImage: `url(${bgImage})`, paddingTop: '50px' }}>
+            <div className="bg2" style={{ backgroundImage: `url(${bgImage})`, paddingTop: '10em' }}>
                 <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
                 <button className="bookmark" onClick={() => this.openModalWithContent('bookmark')} style={{ backgroundImage: `url(${bmIcon})` }}>
                 </button>
                 <Link to="/ImageCreation" className="newEntryButton">
                     <img src={inkIcon} alt="Ink Pot" />
                 </Link>
-                <br />
-                <Link to="/">home</Link>
-                <br />
-                <Link to="/character" className="button-like-link">char</Link>
                 <div className="wholepage">
-                <ul>
-                {savedData.map((item, index) => (
-                    // <li key={index}>
-                    <div className="wholepage-item">
-                    <strong>Title:</strong> {item.title}<br />
-                    <img src={item.imageUrl} alt={`Generated ${index}`} />
+                <ul>                    
+                    {savedData.map((item, index) => (
+                        // <li key={index}>
+                        <div className="wholepage-item">
+                        <strong>Title:</strong> {item.title}<br />
+                        <img src={item.imageUrl} alt={`Generated ${index}`} />
+                        </div>
+                        // </li>
+                    ))}
+                    </ul>
                     </div>
-                    // </li>
-                ))}
-                </ul>
+                    <br />
                 </div>
-                <br />
-            </div>
         );
     }
 }
