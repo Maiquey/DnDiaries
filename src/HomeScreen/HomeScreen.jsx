@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Modal from '../Components/Modal/Modal.js'
 import './HomeScreen.css';
 import bgImage from '../Assets/openbook.jpg'
@@ -36,6 +36,10 @@ export default class HomeScreen extends React.Component {
         }
       }
 
+    handleClick(item) {
+        console.log(item);
+    }
+
     render() {
         const { savedData, isModalOpen, modalContentType } = this.state;
         
@@ -52,18 +56,15 @@ export default class HomeScreen extends React.Component {
                     <img src={inkIcon} alt="Ink Pot" />
                 </Link>
                 <div className="wholepage">
-                <ul>                    
-                    {savedData.map((item, index) => (
-                        // <li key={index}>
-                        <div className="wholepage-item">
-                        <strong>Title:</strong> {item.title}<br />
-                        <img src={item.imageUrl} alt={`Generated ${index}`} />
-                        </div>
-                        // </li>
-                    ))}
-                    </ul>
+                <ul>
+                {savedData.map((item, index) => (
+                    <div key={index} onClick={() => this.handleClick(item)} className="wholepage-item">
+                    <strong>Title:</strong> {item.title}<br />
+                    <img src={item.imageUrl} alt={`Generated ${index}`} />
                     </div>
-                    <br />
+                ))}
+                </ul>
+                </div>
                 </div>
         );
     }

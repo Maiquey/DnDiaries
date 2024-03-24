@@ -5,16 +5,30 @@ import bgImage from '../Assets/oldpaper.jpg'
 import '../Assets/Fonts/fonts.css'
 import './ImageCreation.css';
 
-class ImageCreation extends React.Component {
+export default class ImageCreation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       prompt: "",
       imageUrl: "",
-      error: ""
+      error: "",
+      savedData: [],
     };
   }
+
+  componentDidMount() {
+    const data = localStorage.getItem('savedCharacters');
+    if (data) {
+      this.setState({ savedData: JSON.parse(data) });
+    }
+  }
+
+  generateCharacterStrings = () => {
+    return this.state.savedData.map(character => {
+      return `${character.name} is a ${character.age} year old ${character.gender} ${character.race} ${character.classType} with ${character.hairColor} hair and ${character.skinColor} skin. They weigh ${character.weight} kg and are ${character.height} cm tall. They are wearing ${character.clothing} and is wielding a ${character.weapon}.`;
+    });
+  };
 
   handlePromptChange = (e) => {
     this.setState({ prompt: e.target.value });
@@ -26,8 +40,11 @@ class ImageCreation extends React.Component {
 
   generateImage = () => {
     const { prompt, title } = this.state;
+    const characterStrings = this.generateCharacterStrings();
+    const fullPrompt = `${characterStrings.join(' ')}${prompt}`;
+    
     axios
-      .post("http://localhost:5000/generate", { prompt })
+      .post("http://localhost:5000/generate", { prompt:fullPrompt })
       .then((response) => {
         this.setState({ imageUrl: response.data.image_url, error: "" });
         this.saveToLocalStorage(prompt, title, response.data.image_url); // Save to local storage
@@ -52,7 +69,7 @@ class ImageCreation extends React.Component {
   };
 
   render() {
-    const { title, prompt, imageUrl, error } = this.state;
+    const { title, prompt, imageUrl, error, savedData} = this.state;
     return (
       <div className="background-container" style={{ backgroundImage: `url(${bgImage})`}}>
         <div className="image-creation">
@@ -60,7 +77,7 @@ class ImageCreation extends React.Component {
         <Link to="/">Home</Link>
         <br />
         <Link to="/character">Char</Link>
-        <h1 style={{fontFamily: 'vinque'}}>Welcome to Journal Entry</h1>
+        <h1 style={{fontFamily: 'vinque'}}>Tell Your Story</h1>
         <div className="input-container" style={{fontFamily: 'cupandtalon', fontSize: 24}}>
           <label htmlFor="title">Title:</label>
           <input
@@ -78,7 +95,7 @@ class ImageCreation extends React.Component {
             onChange={this.handlePromptChange}
             placeholder="Enter your prompt..."
           />
-          <button onClick={this.generateImage}>Generate Image</button>
+          <button onClick={this.generateImage}>Submit and Generate Image</button>
         </div>
         {imageUrl && (
           <div className="image-container">
@@ -93,5 +110,3 @@ class ImageCreation extends React.Component {
     );
   }
 }
-
-export default ImageCreation;
