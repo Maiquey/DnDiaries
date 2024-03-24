@@ -5,6 +5,8 @@ import bgImage from '../Assets/openbook.jpg'
 import bmIcon from '../Assets/icons8-bookmark-192-removebg-preview.png'
 import inkIcon from '../Assets/icons8-ink-50.png'
 import { Link } from "react-router-dom";
+import logo from '../Assets/logo_dndiaries_1.png'
+
 
 export default class HomeScreen extends React.Component {
     constructor(props) {
@@ -64,6 +66,8 @@ export default class HomeScreen extends React.Component {
                 <Link to="/ImageCreation" className="newEntryButton">
                     <img src={inkIcon} alt="Ink Pot" />
                 </Link>
+                <img className='logo' src={logo} alt="Logo"  />
+
                 <div className="wholepage">
                 <ul>
                 {savedData.map((item, index) => (

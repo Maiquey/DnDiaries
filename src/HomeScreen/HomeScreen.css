@@ -113,3 +113,11 @@
     outline: none; /* Removes the default focus outline */
     border-color: #999; /* Darker border on focus for better visibility */
 }
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 72.5%; /* Adjust this value to move the logo much more to the right */
+    transform: translate(-50%, -50%);
+    max-width: 30%;
+}
