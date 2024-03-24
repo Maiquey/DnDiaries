@@ -3,6 +3,7 @@ import axios from "axios";
 import './ImageCreation.css';
 
 export default function ImageCreation() {
+  const [title, setTitle] = useState("");
   const [prompt, setPrompt] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [error, setError] = useState("");
@@ -11,13 +12,17 @@ export default function ImageCreation() {
     setPrompt(e.target.value);
   };
 
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
   const generateImage = () => {
     axios
       .post("http://localhost:5000/generate", { prompt })
       .then((response) => {
         setImageUrl(response.data.image_url);
         setError("");
-        saveToLocalStorage(prompt, response.data.image_url); // Save to local storage
+        saveToLocalStorage(prompt, title, response.data.image_url); // Save to local storage
       })
       .catch((error) => {
         setError("Failed to generate image.");
@@ -25,7 +30,7 @@ export default function ImageCreation() {
       });
   };
 
-  const saveToLocalStorage = (prompt, imageUrl) => {
+  const saveToLocalStorage = (prompt, title, imageUrl) => {
     let savedData = localStorage.getItem('savedImageData');
     if (!savedData) {
       savedData = [];
@@ -33,7 +38,7 @@ export default function ImageCreation() {
       savedData = JSON.parse(savedData);
     }
 
-    savedData.push({ prompt, imageUrl });
+    savedData.push({ prompt, title, imageUrl });
     localStorage.setItem('savedImageData', JSON.stringify(savedData));
   };
 
@@ -41,6 +46,14 @@ export default function ImageCreation() {
     <div className="image-creation">
       <h1>DALL·E Image Generation</h1>
       <div className="input-container">
+      <label htmlFor="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          value={title}
+          onChange={handleTitleChange}
+          placeholder="Enter the title..."
+        />
         <label htmlFor="prompt">Prompt:</label>
         <input
           type="text"

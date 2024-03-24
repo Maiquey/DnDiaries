@@ -35,6 +35,10 @@ function App() {
                       element={<JournalEntry />}
                   />
                   <Route
+                      path="/retrieveData"
+                      element={<RetrieveData />}
+                  />
+                  <Route
                       path="*"
                       element={<Navigate to="/" />}
                   />
