@@ -5,11 +5,13 @@ export default function SavedImageData() {
   const [savedData, setSavedData] = useState([]);
 
   useEffect(() => {
-    const data = localStorage.getItem('savedJournal');
+    const data = localStorage.getItem('savedJournalEntries');
     if (data) {
       setSavedData(JSON.parse(data));
     }
   }, []);
+
+  setSavedData(JSON.parse(data));
 
   return (
     <div>
