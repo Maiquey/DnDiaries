@@ -6,6 +6,8 @@
 }
 
 .bookmark {
+    position: relative;
+    top: -30px; /* Adjust this value as needed to move the button up */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -14,9 +16,13 @@
     width: 120px;
     height: 130px;
     cursor: pointer;
-    margin-top: -30px;
-    margin-right: 1000px;
+    margin-right: 1000px;   
     margin-left: 250px;
+    margin-top: -10px;
+}
+.bookmark:hover {
+    background-color: transparent; /* Keeps the background color unchanged */
+    border-color: transparent; /* Removes any border highlight */
 }
 
 .wholepage {
@@ -75,6 +81,7 @@
 }
 
 .bg2 {
+    min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
