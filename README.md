@@ -1,6 +1,6 @@
 ### Mountain Madness Hackathon 2024
 
-![alt text](https://github.com/Maiquey/DnDiaries/main/src/Assets/logo_dndiaries.png?raw=true)
+![screenshot](logo_dndiaries.png)
 
 The party:
 
