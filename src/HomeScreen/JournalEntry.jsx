@@ -1,6 +1,8 @@
 import React from "react";
 import './HomeScreen.css';
 import { Link } from "react-router-dom";
+import bgImage from '../Assets/oldpaper.jpg'
+import '../Assets/Fonts/fonts.css'
 
 export default class JournalEntry extends React.Component{
     constructor(props){
@@ -20,20 +22,20 @@ export default class JournalEntry extends React.Component{
 
     render() {
         return (
-            <div>
+            <div className="bg2" style={{ backgroundImage: `url(${bgImage})`}}>
                 <br />
                 <Link to="/">home</Link>
                 <br />
                 <Link to="/character">char</Link>
-                <h1>Welcome to Journal Entry!</h1>
-                <form onSubmit={this.saveCharacter}>
+                <h1 style={{fontFamily: 'vinque'}}>Welcome to Journal Entry!</h1>
+                <form onSubmit={this.saveCharacter} style={{fontFamily: 'cupandtalon', fontSize: 24}}>
                     <div>
                         <label>Title: </label>
                         <input type="text" name="title" />
                     </div>
                     <div>
                         <label>Description: </label>
-                        <input type="text" name="description" />
+                        <textarea name="description" rows="5" style={{ width: '100%', fontFamily: 'cupandtalon', fontSize: 24 }}></textarea>
                     </div>
                     <button type="submit">Save</button>
                 </form>
