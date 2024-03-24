@@ -1,6 +1,6 @@
 ### Mountain Madness Hackathon 2024
 
-![screenshot](src/Assets/logo_dndiaries.png)
+![screenshot](src/Assets/logo_dndiaries_1.png)
 
 The party:
 
