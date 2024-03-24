@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import bgImage from '../Assets/oldpaper.jpg'
+import '../Assets/Fonts/fonts.css'
 import './ImageCreation.css';
 
 class ImageCreation extends React.Component {
@@ -52,13 +54,14 @@ class ImageCreation extends React.Component {
   render() {
     const { title, prompt, imageUrl, error } = this.state;
     return (
-      <div className="image-creation">
+      <div className="background-container" style={{ backgroundImage: `url(${bgImage})`}}>
+        <div className="image-creation">
         <br />
         <Link to="/">Home</Link>
         <br />
         <Link to="/character">Char</Link>
-        <h1>Welcome to Journal Entry</h1>
-        <div className="input-container">
+        <h1 style={{fontFamily: 'vinque'}}>Welcome to Journal Entry</h1>
+        <div className="input-container" style={{fontFamily: 'cupandtalon', fontSize: 24}}>
           <label htmlFor="title">Title:</label>
           <input
             type="text"
@@ -85,6 +88,8 @@ class ImageCreation extends React.Component {
         )}
         {error && <div className="error">{error}</div>}
       </div>
+      </div>
+      
     );
   }
 }
