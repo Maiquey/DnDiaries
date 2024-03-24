@@ -1,4 +1,4 @@
-Mountain Madness Hackathon 2024
+### Mountain Madness Hackathon 2024
 
 Our project: DnDiaries
 
