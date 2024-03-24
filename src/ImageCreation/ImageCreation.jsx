@@ -1,37 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import './ImageCreation.css';
 
-export default function ImageCreation() {
-  const [title, setTitle] = useState("");
-  const [prompt, setPrompt] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [error, setError] = useState("");
+class ImageCreation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      prompt: "",
+      imageUrl: "",
+      error: ""
+    };
+  }
 
-  const handlePromptChange = (e) => {
-    setPrompt(e.target.value);
+  handlePromptChange = (e) => {
+    this.setState({ prompt: e.target.value });
   };
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
+  handleTitleChange = (e) => {
+    this.setState({ title: e.target.value });
   };
 
-  const generateImage = () => {
+  generateImage = () => {
+    const { prompt, title } = this.state;
     axios
       .post("http://localhost:5000/generate", { prompt })
       .then((response) => {
-        setImageUrl(response.data.image_url);
-        setError("");
-        saveToLocalStorage(prompt, title, response.data.image_url); // Save to local storage
+        this.setState({ imageUrl: response.data.image_url, error: "" });
+        this.saveToLocalStorage(prompt, title, response.data.image_url); // Save to local storage
       })
       .catch((error) => {
-        setError("Failed to generate image.");
+        this.setState({ error: "Failed to generate image." });
         console.error("Error generating image:", error);
       });
   };
 
-  const saveToLocalStorage = (prompt, title, imageUrl) => {
-    let savedData = localStorage.getItem('savedImageData');
+  saveToLocalStorage = (prompt, title, imageUrl) => {
+    let savedData = localStorage.getItem('savedJournalEntries');
     if (!savedData) {
       savedData = [];
     } else {
@@ -39,38 +45,48 @@ export default function ImageCreation() {
     }
 
     savedData.push({ prompt, title, imageUrl });
-    localStorage.setItem('savedImageData', JSON.stringify(savedData));
+    localStorage.setItem('savedJournalEntries', JSON.stringify(savedData));
+    console.log(localStorage)
   };
 
-  return (
-    <div className="image-creation">
-      <h1>DALL·E Image Generation</h1>
-      <div className="input-container">
-      <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={handleTitleChange}
-          placeholder="Enter the title..."
-        />
-        <label htmlFor="prompt">Prompt:</label>
-        <input
-          type="text"
-          id="prompt"
-          value={prompt}
-          onChange={handlePromptChange}
-          placeholder="Enter your prompt..."
-        />
-        <button onClick={generateImage}>Generate Image</button>
-      </div>
-      {imageUrl && (
-        <div className="image-container">
-          <h2>Generated Image:</h2>
-          <img src={imageUrl} alt="Generated" />
+  render() {
+    const { title, prompt, imageUrl, error } = this.state;
+    return (
+      <div className="image-creation">
+        <br />
+        <Link to="/">Home</Link>
+        <br />
+        <Link to="/character">Char</Link>
+        <h1>Welcome to Journal Entry</h1>
+        <div className="input-container">
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={this.handleTitleChange}
+            placeholder="Enter the title..."
+          />
+          <label htmlFor="prompt">Description:</label>
+          <input
+            type="text"
+            id="prompt"
+            value={prompt}
+            onChange={this.handlePromptChange}
+            placeholder="Enter your prompt..."
+          />
+          <button onClick={this.generateImage}>Generate Image</button>
         </div>
-      )}
-      {error && <div className="error">{error}</div>}
-    </div>
-  );
+        {imageUrl && (
+          <div className="image-container">
+            <h2>Generated Image:</h2>
+            <img src={imageUrl} alt="Generated" />
+          </div>
+        )}
+        {error && <div className="error">{error}</div>}
+      </div>
+    );
+  }
 }
+
+export default ImageCreation;
