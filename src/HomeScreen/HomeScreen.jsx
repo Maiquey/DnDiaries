@@ -40,6 +40,16 @@ export default class HomeScreen extends React.Component {
         console.log(item);
     }
 
+    deleteJournal = (index) => {
+        // Create a new array without the journal entry at the given index
+        const newSavedData = [...this.state.savedData];
+        newSavedData.splice(index, 1);
+      
+        // Update the state and the local storage
+        this.setState({ savedData: newSavedData });
+        localStorage.setItem('savedJournalEntries', JSON.stringify(newSavedData));
+      };
+
     render() {
         const { savedData, isModalOpen, modalContentType } = this.state;
         
@@ -60,6 +70,7 @@ export default class HomeScreen extends React.Component {
                     <div key={index} onClick={() => this.handleClick(item)} className="wholepage-item">
                     <strong>Title:</strong> {item.title}<br />
                     <img src={item.imageUrl} alt={`Generated ${index}`} />
+                    <button onClick={() => this.deleteJournal(index)}>Delete</button>
                     </div>
                 ))}
                 </ul>
