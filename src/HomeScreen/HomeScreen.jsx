@@ -40,7 +40,7 @@
                     <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
                     <button className="bookmark" onClick={() => this.openModalWithContent('bookmark')} style={{ backgroundImage: `url(${bmIcon})` }}>
                     </button>
-                    <Link to="/journalEntry" className="newEntryButton">
+                    <Link to="/ImageCreation" className="newEntryButton">
                         <img src={`url(${inkIcon})`} alt="Ink Pot" />
                     </Link>
                     <br />

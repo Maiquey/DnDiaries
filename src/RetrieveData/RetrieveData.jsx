@@ -5,7 +5,7 @@ export default function SavedImageData() {
   const [savedData, setSavedData] = useState([]);
 
   useEffect(() => {
-    const data = localStorage.getItem('savedImageData');
+    const data = localStorage.getItem('savedJournal');
     if (data) {
       setSavedData(JSON.parse(data));
     }
