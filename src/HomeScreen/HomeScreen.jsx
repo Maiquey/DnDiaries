@@ -76,6 +76,7 @@ export default class HomeScreen extends React.Component {
                     </div>
                 ))}
                 </ul>
+                    <img className="logo" src={logo} alt="Logo" />
                 </div>
                 <Modal isOpen={isModalOpen} toggleModal={this.toggleModal} contentType={modalContentType}></Modal>
                 </div>
