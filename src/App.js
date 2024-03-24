@@ -9,6 +9,7 @@ import {
 import CharacterScreen from "./HomeScreen/CharacterCreation";
 import ImageCreation from './ImageCreation/ImageCreation';
 import HomeScreen from './HomeScreen/HomeScreen';
+import JournalEntry from "./HomeScreen/JournalEntry";
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
                   <Route
                       path="/imageCreation"
                       element={<ImageCreation />}
+                  />
+                  <Route
+                      path="/journalEntry"
+                      element={<JournalEntry />}
                   />
                   <Route
                       path="*"
