@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import CharacterScreen from "./HomeScreen/CharacterCreation";
 import ImageCreation from './ImageCreation/ImageCreation';
-import RetrieveData from './RetrieveData/RetrieveData'
 import HomeScreen from './HomeScreen/HomeScreen';
 
 function App() {
@@ -28,10 +27,6 @@ function App() {
                   <Route
                       path="/imageCreation"
                       element={<ImageCreation />}
-                  />
-                  <Route
-                      path="/retrieveData"
-                      element={<RetrieveData />}
                   />
                   <Route
                       path="*"
