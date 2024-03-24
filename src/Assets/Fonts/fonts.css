@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'vinque';
+  src: url('../Fonts/vinquerg.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cupandtalon';
+  src: url('../Fonts/cupandtalon.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
