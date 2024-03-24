@@ -77,7 +77,7 @@ export default class ImageCreation extends React.Component {
         <Link to="/">Home</Link>
         <br />
         <Link to="/character">Char</Link>
-        <h1 style={{fontFamily: 'vinque'}}>Welcome to Journal Entry</h1>
+        <h1 style={{fontFamily: 'vinque'}}>Tell Your Story</h1>
         <div className="input-container" style={{fontFamily: 'cupandtalon', fontSize: 24}}>
           <label htmlFor="title">Title:</label>
           <input
@@ -95,7 +95,7 @@ export default class ImageCreation extends React.Component {
             onChange={this.handlePromptChange}
             placeholder="Enter your prompt..."
           />
-          <button onClick={this.generateImage}>Generate Image</button>
+          <button onClick={this.generateImage}>Submit and Generate Image</button>
         </div>
         {imageUrl && (
           <div className="image-container">
