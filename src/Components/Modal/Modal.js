@@ -44,8 +44,6 @@ export default function Modal({ isOpen, toggleModal, contentType }) {
                     {/* <img src={item.imageUrl} alt={`Generated ${index}`} /> */}
                   </li>
                 ))}
-                <h2>Bookmark Modal</h2>
-                <p>This is the content for the bookmark modal.</p>
               </>
             )}
             <button className="close-modal" onClick={toggleModal}> CLOSE </button>
