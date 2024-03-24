@@ -32,7 +32,12 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
+  .background-container {
+    min-height: 100vh; /* 100% of the viewport height */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+  }
   button:hover {
     background-color: #0056b3;
   }

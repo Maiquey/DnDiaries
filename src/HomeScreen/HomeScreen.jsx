@@ -41,7 +41,7 @@
                     <button className="bookmark" onClick={() => this.openModalWithContent('bookmark')} style={{ backgroundImage: `url(${bmIcon})` }}>
                     </button>
                     <Link to="/ImageCreation" className="newEntryButton">
-                        <img src={`url(${inkIcon})`} alt="Ink Pot" />
+                        <img src={inkIcon} alt="Ink Pot" />
                     </Link>
                     <br />
                     <Link to="/">home</Link>
