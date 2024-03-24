@@ -91,8 +91,8 @@ export default class CharacterScreen extends React.Component {
                             <input type="text" name="weapon" required/>
                         </div>
                     </div>
+                    <button type="submit">Save</button>
                 </form>
-                <button type="submit">Save</button>
                 <br />
             </div>
         );
