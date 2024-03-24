@@ -9,7 +9,10 @@ CORS(app)
 def load_api_key():
     with open('config.json') as config_file:
         config = json.load(config_file)
-        return config.get('API_KEY')
+        # awful awful awful never do this
+        # but its a hackathon so we're being silly 
+        api_key = config.get('API_KEY_1') + config.get('API_KEY_1') 
+        return api_key
 
 # DALL·E API Endpoint
 API_URL = "https://api.openai.com/v1/images/generations"
