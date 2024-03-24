@@ -36,6 +36,10 @@ export default class HomeScreen extends React.Component {
         }
       }
 
+    handleClick(item) {
+        console.log(item);
+    }
+
     render() {
         const { savedData, isModalOpen, modalContentType } = this.state;
         
@@ -58,12 +62,10 @@ export default class HomeScreen extends React.Component {
                 <div className="wholepage">
                 <ul>
                 {savedData.map((item, index) => (
-                    // <li key={index}>
-                    <div className="wholepage-item">
+                    <div key={index} onClick={() => this.handleClick(item)} className="wholepage-item">
                     <strong>Title:</strong> {item.title}<br />
                     <img src={item.imageUrl} alt={`Generated ${index}`} />
                     </div>
-                    // </li>
                 ))}
                 </ul>
                 </div>
