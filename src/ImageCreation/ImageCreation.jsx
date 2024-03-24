@@ -5,16 +5,30 @@ import bgImage from '../Assets/oldpaper.jpg'
 import '../Assets/Fonts/fonts.css'
 import './ImageCreation.css';
 
-class ImageCreation extends React.Component {
+export default class ImageCreation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       prompt: "",
       imageUrl: "",
-      error: ""
+      error: "",
+      savedData: [],
     };
   }
+
+  componentDidMount() {
+    const data = localStorage.getItem('savedCharacters');
+    if (data) {
+      this.setState({ savedData: JSON.parse(data) });
+    }
+  }
+
+  generateCharacterStrings = () => {
+    return this.state.savedData.map(character => {
+      return `${character.name} is a ${character.age} year old ${character.gender} ${character.race} ${character.classType} with ${character.hairColor} hair and ${character.skinColor} skin. They weigh ${character.weight} kg and are ${character.height} cm tall. They are wearing ${character.clothing} and is wielding a ${character.weapon}.`;
+    });
+  };
 
   handlePromptChange = (e) => {
     this.setState({ prompt: e.target.value });
@@ -26,8 +40,12 @@ class ImageCreation extends React.Component {
 
   generateImage = () => {
     const { prompt, title } = this.state;
+    const characterStrings = this.generateCharacterStrings();
+    const fullPrompt = `${characterStrings.join(' ')}${prompt}`;
+
+    console.log(fullPrompt)
     axios
-      .post("http://localhost:5000/generate", { prompt })
+      .post("http://localhost:5000/generate", { fullPrompt })
       .then((response) => {
         this.setState({ imageUrl: response.data.image_url, error: "" });
         this.saveToLocalStorage(prompt, title, response.data.image_url); // Save to local storage
@@ -52,7 +70,7 @@ class ImageCreation extends React.Component {
   };
 
   render() {
-    const { title, prompt, imageUrl, error } = this.state;
+    const { title, prompt, imageUrl, error, savedData} = this.state;
     return (
       <div className="background-container" style={{ backgroundImage: `url(${bgImage})`}}>
         <div className="image-creation">
@@ -93,5 +111,3 @@ class ImageCreation extends React.Component {
     );
   }
 }
-
-export default ImageCreation;
