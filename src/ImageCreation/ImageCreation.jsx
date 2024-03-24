@@ -1,43 +1,57 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import './ImageCreation.css';
 
-class ImageCreation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      prompt: "",
-      imageUrl: "",
-      error: ""
-    };
-  }
+export default function ImageCreation() {
+  const [title, setTitle] = useState("");
+  const [prompt, setPrompt] = useState("");
+  const [savedCharacterData, setCharacterData] = useState([]);
+  const [imageUrl, setImageUrl] = useState("");
+  const [error, setError] = useState("");
 
-  handlePromptChange = (e) => {
-    this.setState({ prompt: e.target.value });
+  useEffect(() => {
+    const savedCharacterData = localStorage.getItem('savedCharacters');
+    if (savedCharacterData) {
+      setCharacterData(JSON.parse(savedCharacterData));
+    }
+  }, []);
+
+  const generateCharacterStrings = (characters) => {
+    return characters.map(character => {
+      return `${character.name} is a ${character.age} year old ${character.gender} ${character.race} ${character.classType} with ${character.hairColor} hair and ${character.skinColor} skin. They weigh ${character.weight} kg and are ${character.height} cm tall. They are wearing ${character.clothing} and is wielding a ${character.weapon}.`;
+    });
   };
 
-  handleTitleChange = (e) => {
-    this.setState({ title: e.target.value });
+
+  const handlePromptChange = (e) => {
+    setPrompt(e.target.value);
   };
 
-  generateImage = () => {
-    const { prompt, title } = this.state;
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+const characterStrings = generateCharacterStrings(savedCharacterData);
+  // Append the character strings to the prompt
+const fullPrompt = `${characterStrings.join(' ')}${prompt}`;
+
+  const generateImage = () => {
+    console.log("Full prompt:", fullPrompt);
     axios
-      .post("http://localhost:5000/generate", { prompt })
+      .post("http://localhost:5000/generate", { fullPrompt })
       .then((response) => {
-        this.setState({ imageUrl: response.data.image_url, error: "" });
-        this.saveToLocalStorage(prompt, title, response.data.image_url); // Save to local storage
+        setImageUrl(response.data.image_url);
+        setError("");
+        saveToLocalStorage(prompt, title, response.data.image_url); // Save to local storage
       })
       .catch((error) => {
-        this.setState({ error: "Failed to generate image." });
+        setError("Failed to generate image.");
         console.error("Error generating image:", error);
       });
   };
 
-  saveToLocalStorage = (prompt, title, imageUrl) => {
-    let savedData = localStorage.getItem('savedJournalEntries');
+  const saveToLocalStorage = (prompt, title, imageUrl) => {
+    let savedData = localStorage.getItem('savedImageData');
     if (!savedData) {
       savedData = [];
     } else {
@@ -45,48 +59,38 @@ class ImageCreation extends React.Component {
     }
 
     savedData.push({ prompt, title, imageUrl });
-    localStorage.setItem('savedJournalEntries', JSON.stringify(savedData));
-    console.log(localStorage)
+    localStorage.setItem('savedImageData', JSON.stringify(savedData));
   };
 
-  render() {
-    const { title, prompt, imageUrl, error } = this.state;
-    return (
-      <div className="image-creation">
-        <br />
-        <Link to="/">Home</Link>
-        <br />
-        <Link to="/character">Char</Link>
-        <h1>Welcome to Journal Entry</h1>
-        <div className="input-container">
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={this.handleTitleChange}
-            placeholder="Enter the title..."
-          />
-          <label htmlFor="prompt">Description:</label>
-          <input
-            type="text"
-            id="prompt"
-            value={prompt}
-            onChange={this.handlePromptChange}
-            placeholder="Enter your prompt..."
-          />
-          <button onClick={this.generateImage}>Generate Image</button>
-        </div>
-        {imageUrl && (
-          <div className="image-container">
-            <h2>Generated Image:</h2>
-            <img src={imageUrl} alt="Generated" />
-          </div>
-        )}
-        {error && <div className="error">{error}</div>}
+  return (
+    <div className="image-creation">
+      <h1>DALL·E Image Generation</h1>
+      <div className="input-container">
+      <label htmlFor="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          value={title}
+          onChange={handleTitleChange}
+          placeholder="Enter the title..."
+        />
+        <label htmlFor="prompt">Prompt:</label>
+        <input
+          type="text"
+          id="prompt"
+          value={prompt}
+          onChange={handlePromptChange}
+          placeholder="Enter your prompt..."
+        />
+        <button onClick={generateImage}>Generate Image</button>
       </div>
-    );
-  }
+      {imageUrl && (
+        <div className="image-container">
+          <h2>Generated Image:</h2>
+          <img src={imageUrl} alt="Generated" />
+        </div>
+      )}
+      {error && <div className="error">{error}</div>}
+    </div>
+  );
 }
-
-export default ImageCreation;
