@@ -115,6 +115,9 @@
 }
 
 .logo {
-    max-width: 40%;
-    margin-left: 55%;
+    position: absolute;
+    top: 45%;
+    left: 72.5%; /* Adjust this value to move the logo much more to the right */
+    transform: translate(-50%, -50%);
+    max-width: 35%;
 }
