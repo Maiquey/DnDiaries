@@ -28,9 +28,9 @@ Ensure you have a decently recent version of node/npm installed.
 
 Make sure python is installed, install the following python dependencies:
 
-### `pip install Flask==2.1.5`
-### `pip install requests==2.26.0`
-### `pip install flask-cors==3.1.1`
+### `pip install Flask`
+### `pip install requests`
+### `pip install flask-cors`
 
 Then run the python application in a terminal in the project directory:
 
